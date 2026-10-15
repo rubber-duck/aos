@@ -27,6 +27,8 @@ Set a unique `BEADS_ACTOR` and follow the claim procedure in the workflow. Linke
 ```sh
 git clone https://github.com/rubber-duck/aos.git
 cd aos
+chmod 700 .beads
+git config beads.role contributor
 bd dolt start
 bd bootstrap --dry-run
 bd bootstrap --yes
@@ -34,6 +36,8 @@ bd config set status.custom in_review
 bd dolt test
 bd ready
 ```
+
+Maintainers can use `git config beads.role maintainer` instead; this local role setting does not grant GitHub permissions.
 
 Inspect the dry run before proceeding: it must recover existing AOS history from the configured remote, not create an empty tracker. The database-local custom status needs reapplying after bootstrap with this tool pair. Verify existing issues and dependencies before writes. Preserve the project `AGENTS.md` and `.beads/PRIME.md` guidance.
 
