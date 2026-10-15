@@ -25,7 +25,7 @@ Set a unique `BEADS_ACTOR` and follow the claim procedure in the workflow. Linke
 ## Fresh clone
 
 ```sh
-git clone git@github.com:rubber-duck/aos.git
+git clone https://github.com/rubber-duck/aos.git
 cd aos
 bd dolt start
 bd bootstrap --dry-run
@@ -39,7 +39,9 @@ Inspect the dry run before proceeding: it must recover existing AOS history from
 
 ## Checkpoint and publish
 
-One owner coordinates checkpoints and sync; a solo session is the sync owner. Do not pull while another owner is writing. The configured remote is `git+ssh://git@github.com/rubber-duck/aos.git`.
+The initial host uses the existing GitHub CLI HTTPS credential helper for authenticated writes. New contributors need their own GitHub credentials and repository write access to publish.
+
+One owner coordinates checkpoints and sync; a solo session is the sync owner. Do not pull while another owner is writing. The configured remote is `git+https://github.com/rubber-duck/aos.git`.
 
 ```sh
 bd dolt commit --message "Checkpoint progress and handoffs"
